@@ -1,15 +1,10 @@
+GFXINC  +=	$(GFXLIB)/boards/base/STM32F429i-Discovery
 ifeq ($(OPT_OS),chibios)
-	GFXINC  +=	$(GFXLIB)/boards/base/STM32F429i-Discovery
 	GFXSRC  +=	$(GFXLIB)/boards/base/STM32F429i-Discovery/stm32f429i_discovery_sdram.c \
 				$(GFXLIB)/boards/base/STM32F429i-Discovery/stm32f4xx_fmc.c
 
-	include $(GFXLIB)/drivers/gdisp/STM32LTDC/driver.mk
 	# GFXDEFS += -DGFX_USE_OS_CHIBIOS=TRUE
-else
-	GFXINC  +=	$(GFXLIB)/boards/base/STM32F429i-Discovery \
-			$(GFXLIB)/drivers/gdisp/STM32LTDC
-
-	# include $(GFXLIB)/drivers/gdisp/STM32LTDC/driver.mk
 endif
 
+include $(GFXLIB)/drivers/gdisp/STM32LTDC/driver.mk
 include $(GFXLIB)/drivers/ginput/touch/STMPE811/driver.mk

@@ -10,6 +10,7 @@
 
 #if GFX_USE_GDISP
 
+#if GFX_USE_OS_CHIBIOS
 /*===========================================================================*/
 /* Driver hardware support.                                                  */
 /*===========================================================================*/
@@ -39,6 +40,17 @@
  		#define GDISP_HARDWARE_BITFILLS	TRUE
 	#endif
 #endif /* GDISP_USE_DMA2D */
+#endif
+
+// freertos config
+#if GFX_USE_OS_FREERTOS
+
+#define GDISP_HARDWARE_DRAWPIXEL		TRUE
+#define GDISP_HARDWARE_FILLS			TRUE
+#define GDISP_HARDWARE_CLEARS			TRUE
+
+#define GDISP_LLD_PIXELFORMAT			GDISP_PIXELFORMAT_RGB565
+#endif
 
 #endif	/* GFX_USE_GDISP */
 
