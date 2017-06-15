@@ -55,5 +55,7 @@ SRC += $(FREERTOS)/Source/list.o \
 # SRC     += $(foreach sdir,$(FREERTOS_MODULES),$(wildcard $(sdir)/*.c))
 
 ifeq ($(LDSCRIPT),)
-  LDSCRIPT= $(FREERTOS_LDSCRIPT)
+  ifneq ($(FREERTOS_LDSCRIPT),)
+    LDSCRIPT= $(FREERTOS)/Demo/$(FREERTOS_CPUTYPE)_$(FREERTOS_BOARD)_GCC/$(FREERTOS_LDSCRIPT)
+  endif
 endif

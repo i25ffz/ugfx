@@ -24,6 +24,8 @@
 	#undef GDISP_SCREEN_WIDTH
 #endif
 
+#define GDISP_DRIVER_VMT			GDISPVMT_ILI9341
+
 #include "gdisp_lld_config.h"
 #include "src/gdisp/gdisp_driver.h"
 #include "stm32f429i_discovery_lcd.h"
